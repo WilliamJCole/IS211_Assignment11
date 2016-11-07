@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>A Simple Todo App</title>	
+
+    <link     href='http://fonts.googleapis.com/css?family=Sintony:400,700'     rel='stylesheet' type='text/css'>
+
+    <style type="text/css">    
+      body
+      {
+        background-color:#A8EBF5;
+      }
+
+      h1
+      {
+        font-size:48px;
+        margin-top:0;
+        font-family:Arial, sans-serif;
+        text-shadow:2px 0 15px #292929;
+        letter-spacing:4px;
+        text-decoration:none;
+        color:#DDD;
+      }
+
+      #banner
+      {
+        width:500px;
+        height:200px;
+        text-align:center;
+        background-image:url(http://i.imgur.com/MQHYB.jpg);
+        background-repeat:no-repeat;
+        border-radius:5px;
+        margin:90px auto auto;
+        padding:80px 0;
+      }
+
+      .lead
+      {
+        background-color:rgba(255,255,255,0.6);
+        border-radius:3px;
+        box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
+        font-family:Sintony, sans-serif;
+      }
+    </style>
+
+  </head>  
+
+  <body>
+
+    <table border="1" style="width:100%">
+    {% for post in posts %}
+    <tr><td>{{ post.task }} </td><td> {{ post.email }} </td><td> {{ post.priority }} </td>></tr>
+    {% endfor %}
+    </table>
+
+    <form action="/submit" method="post">
+      <label for="task">Task:</label>
+      <input type="text" name="task"></input>
+      <label for="email">Email:</label>
+      <input type="text" name="email"></input>
+      <label for="priority">Priority:</label>
+      <select name="priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <input type="submit" value="Submit & Save"></input>
+    </form>
+    <br><br>
+    <form action="/clearall" method="post">
+      <input type="submit" value="Clear List"></input>
+    </form>
+
+  </body>
+</html>

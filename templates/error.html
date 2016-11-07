@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Error</title>
+  </head>
+  <body>
+    <h1>Form Error</h1>
+    {% if error_field %}
+      <br>Please verify your input on {{ error_field }}!<br>
+    {% endif %}
+  </body>
+</html>
